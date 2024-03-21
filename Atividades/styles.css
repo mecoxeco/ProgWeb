@@ -1,0 +1,100 @@
+/* Reset de estilos para garantir consistência em diferentes navegadores */
+body,
+h1,
+h2,
+p,
+ul,
+ol,
+li,
+figure,
+table,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos gerais */
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+main {
+  max-width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main > section,
+main > article {
+  width: 100%;
+  color: black;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Adicionei uma nova classe para a div que envolve as imagens do Squirtle */
+.squirtle-images {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Seções */
+
+#curiosidades ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Footer */
+
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+footer a {
+  margin-top: 12px;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+footer a[href*='#'] {
+  color: white;
+}
+
+footer a[href*='mailto'] {
+  color: orangered;
+}
+
+footer a[href*='tel'] {
+  color: limegreen;
+}
+
+footer a[href]:hover {
+  opacity: 0.8;
+}
