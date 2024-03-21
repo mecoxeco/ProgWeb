@@ -133,6 +133,12 @@ article {
   width: 200px; /* Tamanho definido para as imagens do Squirtle */
 }
 
+.curiosidades-lista {
+  display: flex; /* Adicionado */
+  flex-direction: column; /* Adicionado */
+  gap: 12px; /* Adicionado */
+}
+
 /* Links */
 
 a[target='_blank'] {
@@ -152,6 +158,8 @@ footer {
   padding: 20px;
   text-align: center;
   bottom: 0;
+  display: flex; /* Adicionado */
+  gap: 10px; /* Adicionado */
 }
 
 footer a {
