@@ -1,4 +1,82 @@
-/* Adicionando uma transição na troca de cor dos links da nav */
+/* Reset de estilos para garantir consistência em diferentes navegadores */
+body,
+h1,
+h2,
+p,
+ul,
+ol,
+li,
+figure,
+table,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos gerais */
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+main {
+  max-width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+main > section,
+main > article {
+  color: black;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease-out; /* Adicionado */
+}
+
+section h1,
+section h2,
+section h3,
+article h1,
+article h2,
+article h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+ul li {
+  list-style-position: inside;
+}
+
+/* Header */
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Lista de navegação */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  background-color: #343a40;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
 nav a {
   text-decoration: none;
   color: #fff;
@@ -10,17 +88,18 @@ nav a:hover {
   color: #ffc107;
 }
 
-/* Adicionando um efeito de hover nas imagens */
-.squirtle-images img {
-  width: 200px;
-  transition: transform 0.3s ease-in-out; /* Adicionado */
+/* Seções */
+#curiosidades li::marker {
+  content: '🔍';
 }
 
-.squirtle-images img:hover {
-  transform: scale(1.1); /* Adicionado */
+#evolucao ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
 }
 
-/* Adicionando uma transição para o hover nas imagens */
 #evolucao figcaption {
   font-weight: 600;
   font-size: 20px;
@@ -29,33 +108,66 @@ nav a:hover {
   transition: font-size 0.3s ease-in-out; /* Adicionado */
 }
 
-/* Adicionando uma transição na troca de opacity dos links */
+article {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.squirtle-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.squirtle-images img {
+  width: 200px;
+  transition: transform 0.3s ease-in-out; /* Adicionado */
+}
+
+/* Links */
+a[target='_blank'] {
+  color: #4592c4;
+  font-weight: bold;
+}
+
+a[target='_blank']:hover {
+  opacity: 0.8;
+}
+
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+}
+
 footer a {
   text-decoration: none;
   transition: opacity 0.3s ease-in-out; /* Adicionado */
 }
 
-/* Transformando nossa main em um display grid */
-main {
-  max-width: 80vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+footer a[href*='#'] {
+  color: white;
 }
 
-/* Removendo a width das sections e article */
-main > section,
-main > article {
-  color: black;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+footer a[href*='mailto'] {
+  color: orangered;
 }
 
-/* Aplicando os estilos para resoluções menores que 768px */
+footer a[href*='tel'] {
+  color: limegreen;
+}
+
+footer a[href]:hover {
+  opacity: 0.8;
+}
+
+/* Media queries */
 @media screen and (max-width: 768px) {
   main {
     grid-template-columns: 1fr;
@@ -94,9 +206,4 @@ main > article {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-main > section,
-main > article {
-  animation: fadeIn 0.5s ease-out;
 }
