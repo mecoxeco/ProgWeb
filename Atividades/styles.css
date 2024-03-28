@@ -15,7 +15,6 @@ td {
 }
 
 /* Estilos gerais */
-
 body {
   font-family: 'Arial', sans-serif;
   color: #333;
@@ -25,14 +24,9 @@ body {
 main {
   max-width: 80vw;
   margin: 0 auto;
-  display: flex; /* Adicionado */
-  flex-direction: column; /* Adicionado */
-  align-items: center; /* Adicionado */
-}
-
-main > section,
-main > article {
-  width: 100%; /* Adicionado */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 main > section,
@@ -43,9 +37,6 @@ main > article {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  display: flex; /* Adicionado */
-  flex-direction: column; /* Adicionado */
-  align-items: center; /* Adicionado */
 }
 
 section h1,
@@ -66,17 +57,15 @@ ul li {
 }
 
 /* Header */
-
 header {
   background-color: #007bff;
   color: #fff;
   padding: 20px;
-  display: flex; /* Adicionado */
-  justify-content: center; /* Adicionado */
+  display: flex;
+  justify-content: center;
 }
 
 /* Lista de navegação */
-
 nav ul {
   list-style: none;
   display: flex;
@@ -91,6 +80,7 @@ nav a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
+  transition: color 0.3s ease-in-out;
 }
 
 nav a:hover {
@@ -98,7 +88,6 @@ nav a:hover {
 }
 
 /* Seções */
-
 #curiosidades li::marker {
   content: '🔍';
 }
@@ -107,7 +96,7 @@ nav a:hover {
   display: flex;
   justify-content: space-around;
   list-style: none;
-  padding: 0; /* Adicionado */
+  padding: 0;
 }
 
 #evolucao figcaption {
@@ -130,17 +119,17 @@ article {
 }
 
 .squirtle-images img {
-  width: 200px; /* Tamanho definido para as imagens do Squirtle */
+  width: 200px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .curiosidades-lista {
-  display: flex; /* Adicionado */
-  flex-direction: column; /* Adicionado */
-  gap: 12px; /* Adicionado */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 /* Links */
-
 a[target='_blank'] {
   color: #4592c4;
   font-weight: bold;
@@ -151,20 +140,19 @@ a[target='_blank']:hover {
 }
 
 /* Footer */
-
 footer {
   background-color: #343a40;
   color: #fff;
   padding: 20px;
   text-align: center;
   bottom: 0;
-  display: flex; /* Adicionado */
-  gap: 10px; /* Adicionado */
+  display: flex;
+  gap: 10px;
 }
 
 footer a {
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out; /* Adicionado */
 }
 
 footer a[href*='#'] {
@@ -181,4 +169,49 @@ footer a[href*='tel'] {
 
 footer a[href]:hover {
   opacity: 0.8;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main > section,
+main > article {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #evolucao ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #evolucao figcaption {
+    font-size: 16px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  main h2 {
+    font-size: 18px;
+  }
 }
