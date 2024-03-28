@@ -24,9 +24,6 @@ body {
 main {
   max-width: 80vw;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
 }
 
 main > section,
