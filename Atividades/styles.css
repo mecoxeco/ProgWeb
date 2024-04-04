@@ -101,7 +101,7 @@ nav a:hover {
   display: flex;
   justify-content: space-around;
   list-style: none;
-  padding: 0; /* Adicionado */
+  padding: 0;
 }
 
 #evolucao figcaption {
