@@ -1,3 +1,4 @@
+/* Reset de estilos para garantir consistência em diferentes navegadores */
 body,
 h1,
 h2,
@@ -13,6 +14,11 @@ td {
   padding: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+/* Estilos gerais */
 
 body {
   font-family: 'Arial', sans-serif;
@@ -21,34 +27,34 @@ body {
 }
 
 main {
-  max-width: 80vw;
-  margin: 0 auto;
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-main > section,
-main > article {
-  width: 100%; 
+main > section {
+  padding: 20px;
 }
 
-main > section,
-main > article {
+main section,
+main article {
+  width: 80vw;
   color: black;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  display: flex;
+  flex-direction: column;
 }
 
 section h1,
 section h2,
-section h3,
+section h3 {
+  margin-bottom: 8px;
+}
+
 article h1,
 article h2,
 article h3 {
@@ -70,14 +76,21 @@ header {
   color: #fff;
   padding: 20px;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
+
+header h1 {
+  font-size: 24px;
+}
+
+/* Lista de navegação */
 
 nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
   background-color: #343a40;
   padding: 10px;
   margin-bottom: 20px;
@@ -93,6 +106,30 @@ nav a:hover {
   color: #ffc107;
 }
 
+/* Seções */
+
+#info-squirtle div {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#info-squirtle img {
+  width: 150px;
+  height: 150px;
+  align-self: center;
+}
+
+#info-squirtle img:nth-of-type(2) {
+  padding: 35px;
+}
+
+#curiosidades ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 #curiosidades li::marker {
   content: '🔍';
 }
@@ -100,8 +137,13 @@ nav a:hover {
 #evolucao ul {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   list-style: none;
-  padding: 0;
+}
+
+#evolucao img {
+  height: 150px;
+  width: 150px;
 }
 
 #evolucao figcaption {
@@ -114,23 +156,6 @@ nav a:hover {
 article {
   background-color: #ffc107;
   color: #fff;
-}
-
-.squirtle-images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.squirtle-images img {
-  width: 200px; /* Tamanho definido para as imagens do Squirtle */
-}
-
-.curiosidades-lista {
-  display: flex; /* Adicionado */
-  flex-direction: column; /* Adicionado */
-  gap: 12px; /* Adicionado */
 }
 
 /* Links */
@@ -150,10 +175,16 @@ footer {
   background-color: #343a40;
   color: #fff;
   padding: 20px;
-  text-align: center;
   bottom: 0;
-  display: flex; /* Adicionado */
-  gap: 10px; /* Adicionado */
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+footer p {
+  margin-bottom: 0;
 }
 
 footer a {
