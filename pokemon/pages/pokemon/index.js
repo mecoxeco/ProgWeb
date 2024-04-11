@@ -1,5 +1,5 @@
 function changePageTitle(title) {
-  document.title = title
+  document.title = title;
 }
 
 function updateVisitCounter() {
