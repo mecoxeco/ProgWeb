@@ -1,40 +1,40 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const formularioToDo = document.getElementById('todo-form');
-  const entradaTitulo = document.getElementById('title');
-  const entradaDescricao = document.getElementById('description');
-  const containerTarefas = document.getElementById('tasks');
+const taskKey = '@tasks'
 
-  function renderizarTarefas() {
-      containerTarefas.innerHTML = '';
-      const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
-      tarefas.forEach(tarefa => {
-          const elementoTarefa = document.createElement('div');
-          elementoTarefa.classList.add('tarefa');
-          elementoTarefa.innerHTML = `
-              <h3>${tarefa.titulo}</h3>
-              <p>${tarefa.descricao}</p>
-          `;
-          containerTarefas.appendChild(elementoTarefa);
-      });
-  }
+// Função para adicionar tarefa
+function addTask(event) {
+  event.preventDefault() // Evita o recarregamento da página
+  const taskId = new Date().getTime()
+  const taskList = document.querySelector('#taskList')
 
-  function lidarComEnvioDoFormulario(evento) {
-      evento.preventDefault();
-      const titulo = entradaTitulo.value.trim();
-      const descricao = entradaDescricao.value.trim();
-      if (titulo === '') {
-          alert('Por favor, insira um título para a tarefa.');
-          return;
-      }
-      const tarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
-      tarefas.push({ titulo, descricao });
-      localStorage.setItem('tarefas', JSON.stringify(tarefas));
-      renderizarTarefas();
-      entradaTitulo.value = '';
-      entradaDescricao.value = '';
-  }
+  const form = document.querySelector('#taskForm')
+  const formData = new FormData(form)
 
-  formularioToDo.addEventListener('submit', lidarComEnvioDoFormulario);
+  const taskTitle = formData.get('title')
+  const taskDescription = formData.get('description')
 
-  renderizarTarefas();
-});
+  const li = document.createElement('li')
+
+  li.id = taskId
+  li.innerHTML = `
+      <h2>${taskTitle}</h2>
+      <p>${taskDescription}</p>
+  `
+
+  taskList.appendChild(li)
+
+  // Salvar tarefas no localStorage
+  const tasks = JSON.parse(localStorage.getItem(taskKey)) || []
+  tasks.push({ title: taskTitle, description: taskDescription })
+  localStorage.setItem(taskKey, JSON.stringify(tasks))
+
+  form.reset()
+}
+
+// Carregar tarefas do localStorage ao recarregar a página
+window.addEventListener('DOMContentLoaded', () => {
+  const tasks = JSON.parse(localStorage.getItem(taskKey)) || []
+  const taskList = document.querySelector('#taskList')
+  taskList.innerHTML = tasks
+    .map((task) => `<li><h2>${task.title}</h2><p>${task.description}</p></li>`)
+    .join('')
+})
